@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Dashboard | Teams | Main View</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script>
+      // CHART & NUMBER OF BARS
+      function numberOfChartBars() {
+        let graphs = document.querySelectorAll('.graph-card');
+        [...graphs].forEach((e) => {
+          let rem = parseInt(
+            getComputedStyle(document.documentElement).fontSize
+          );
+          let graphWidth = e.offsetWidth;
+          let barWidth = rem * 1.8 * 3;
+          let numOfBars = Math.floor(graphWidth / barWidth);
+
+          e.querySelectorAll('.graph-card-body .bar').forEach((e, i, arr) => {
+            e.style.display = 'none';
+            if (i + 1 >= arr.length - numOfBars) {
+              e.style.display = 'inline-block';
+            }
+          });
+        });
+      }
+
+      // ANIMATE PROGRESS BAR
+      window.addEventListener('load', function () {
+        document.querySelectorAll('.progress-custom-bar-fill').forEach((e) => {
+          e.style.width = `${e.getAttribute('fill-progress')}%`;
+        });
+      });
+
+      // initial width check
+      checkSliderWidth();
+
+      // Initialize sliders
+      sliderInit('.section-averages');
+      sliderInit('.section-development');
+
+      // Check for sliders and content width show/hide slider triggers
+      function checkSliderWidth(slider) {
+        $('.slider').each(function (i) {
+          if (
+            $(this).width() <=
+            $(this).find('.slider-item').outerWidth() * 3 - 10
+          ) {
+            $(this).find('.slider-trigger-left').show();
+            $(this).find('.slider-trigger-right').show();
+            //$(`.slider .slider-item`)
+          } else {
+            $(this).find('.slider-trigger-left').hide();
+            $(this).find('.slider-trigger-right').hide();
+            //$(`.slider .slider-item`)
+          }
+        });
+
+        numberOfChartBars();
+      }
+
+      // Slider logic
+      function sliderInit(slider) {
+        console.log($('html').css('font-size'));
+        $(`${slider} .slider-trigger-left`).on('click', function () {
+          $(`${slider} .section-body`).animate(
+            {
+              scrollLeft: `-=${
+                $(`${slider} .slider-item`).outerWidth() +
+                parseInt($('html').css('font-size')) * 1.72
+              }`,
+            },
+            300,
+            'swing'
+          );
+        });
+
+        $(`${slider} .slider-trigger-right`).on('click', function () {
+          $(`${slider} .section-body`).animate(
+            {
+              scrollLeft: `+=${
+                $(`${slider} .slider-item`).outerWidth() +
+                parseInt($('html').css('font-size')) * 1.72
+              }`,
+            },
+            300,
+            'swing'
+          );
+        });
+      }
+
+      // resize event listener
+      window.addEventListener('resize', checkSliderWidth);
+    </script>
+  </body>
+</html>
