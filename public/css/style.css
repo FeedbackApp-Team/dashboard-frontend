@@ -797,12 +797,6 @@ i {
             color: #0070e0; }
             .header-top .dropdown-custom-list-header .user-info a:hover, .header-top .dropdown-custom-list-header .user-info a:focus {
               text-decoration: underline; }
-        .header-top .dropdown-custom-list-item-link {
-          margin-left: 0;
-          font-size: 1.5rem;
-          font-weight: 400;
-          line-height: 1.33;
-          color: #1b2734; }
         .header-top .dropdown-custom-list-footer {
           margin-top: 1.5rem;
           padding: 2rem 1.6rem;
@@ -811,6 +805,9 @@ i {
           .header-top .dropdown-custom-list-footer:hover, .header-top .dropdown-custom-list-footer:focus {
             background-color: #f7f9fa; }
           .header-top .dropdown-custom-list-footer a {
+            display: block;
+            width: 100%;
+            height: 100%;
             color: inherit;
             margin-left: 0;
             font-size: 1.5rem;
@@ -853,113 +850,258 @@ i {
           color: #0d1217;
           text-decoration: underline; }
 
-.header-settings {
-  border-bottom: none; }
-  .header-settings h1 {
-    display: inline-block; }
-  .header-settings-links {
-    display: inline-block;
-    border-bottom: 1px solid #ccc; }
-
-.teams-main-view {
-  max-width: 110rem;
-  padding: 2.5rem 0;
-  border-top: 1px solid #e1e1e1; }
-  .teams-main-view-header {
-    margin-bottom: 3.8rem; }
-    .teams-main-view-header .btn-custom-primary {
-      margin-right: 1.1rem; }
-    .teams-main-view-header .input-container {
-      position: relative;
-      display: inline-block; }
-      @media (max-width: 379px) {
-        .teams-main-view-header .input-container {
-          display: none; } }
-      .teams-main-view-header .input-container input {
-        max-width: 18.2rem;
-        padding: .7rem 2.8rem;
-        padding-right: 1.5rem;
-        font-size: 1.4rem;
-        line-height: 1.36;
-        border-radius: 3px;
-        border: solid 1px #c1c7cd; }
-      .teams-main-view-header .input-container i {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        font-size: 1.5rem;
-        transform: translate(50%, -50%); }
-  .teams-main-view-body {
-    max-height: calc(100vh - 30rem);
+.teams-average-charts {
+  width: 100%;
+  max-width: 103rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid #e1e1e1;
+  z-index: 100;
+  max-height: calc(100vh - 17.1rem - 1.5px);
+  z-index: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */ }
+  .teams-average-charts::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0; }
+  .teams-average-charts-body .section {
+    position: relative; }
+    .teams-average-charts-body .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.2rem;
+      padding: 1rem 1.25rem;
+      padding-right: 2rem;
+      background-color: #f5f7f8;
+      border-radius: .1rem; }
+      .teams-average-charts-body .section-header p {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.28;
+        color: #647282; }
+      .teams-average-charts-body .section-header .dropdown-custom-trigger {
+        border: none;
+        box-shadow: none;
+        font-size: 1.25rem;
+        line-height: 1.28;
+        color: #657383;
+        padding: 0; }
+        .teams-average-charts-body .section-header .dropdown-custom-trigger i {
+          font-size: .8rem;
+          margin-left: .3rem; }
+        .teams-average-charts-body .section-header .dropdown-custom-trigger:focus, .teams-average-charts-body .section-header .dropdown-custom-trigger:active {
+          color: #657383;
+          border: none;
+          box-shadow: none; }
+    .teams-average-charts-body .section-body {
+      overflow-y: auto;
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* Internet Explorer 10+ */ }
+      .teams-average-charts-body .section-body::-webkit-scrollbar {
+        /* WebKit */
+        width: 0;
+        height: 0; }
+  .teams-average-charts-body .section-averages {
+    margin-bottom: 4.2rem; }
+    .teams-average-charts-body .section-averages .section-header {
+      margin-bottom: 0; }
+    .teams-average-charts-body .section-averages .section-body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1rem 1.72rem; }
+      @media (max-width: 991px) {
+        .teams-average-charts-body .section-averages .section-body {
+          grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 575px) {
+        .teams-average-charts-body .section-averages .section-body {
+          grid-template-columns: repeat(1, 100%); } }
+      .teams-average-charts-body .section-averages .section-body .progress-custom {
+        padding-right: 2.94rem;
+        padding-left: 1.25rem;
+        padding-top: 2.8rem; }
+        .teams-average-charts-body .section-averages .section-body .progress-custom-sub {
+          margin-bottom: -.2rem;
+          font-size: 1.2rem;
+          font-weight: 500;
+          line-height: 1.33;
+          letter-spacing: normal;
+          color: #818181; }
+        .teams-average-charts-body .section-averages .section-body .progress-custom-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+          .teams-average-charts-body .section-averages .section-body .progress-custom-info h3 {
+            margin-top: 0rem;
+            margin-right: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #1f1f1f; }
+          .teams-average-charts-body .section-averages .section-body .progress-custom-info .up, .teams-average-charts-body .section-averages .section-body .progress-custom-info .down {
+            padding-bottom: .8rem;
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.33; }
+            .teams-average-charts-body .section-averages .section-body .progress-custom-info .up i, .teams-average-charts-body .section-averages .section-body .progress-custom-info .down i {
+              margin-right: .5rem;
+              font-size: 1.6rem; }
+          .teams-average-charts-body .section-averages .section-body .progress-custom-info .up {
+            color: #137efe; }
+            .teams-average-charts-body .section-averages .section-body .progress-custom-info .up i {
+              color: #137efe; }
+          .teams-average-charts-body .section-averages .section-body .progress-custom-info .down {
+            color: #ff5555; }
+            .teams-average-charts-body .section-averages .section-body .progress-custom-info .down i {
+              color: #ff5555; }
+        .teams-average-charts-body .section-averages .section-body .progress-custom-bar {
+          margin-top: 1rem;
+          width: 100%;
+          height: 1.46rem;
+          border-radius: .6rem;
+          background-color: #ecf0f6; }
+          .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill {
+            width: 0%;
+            height: 100%;
+            border-top-left-radius: .6rem;
+            border-bottom-left-radius: .6rem;
+            transition: width .8s ease-out .1s; }
+            .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill.good {
+              background-color: #30ea4f; }
+            .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill.ok {
+              background-color: #ffcc19; }
+            .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill.bad {
+              background-color: #fd1f27; }
+  .teams-average-charts-body .section-development {
+    margin-bottom: 3rem; }
+    .teams-average-charts-body .section-development .section-header {
+      margin-bottom: 1.5rem; }
+    .teams-average-charts-body .section-development .section-body {
+      padding: 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 3rem 1.72rem; }
+      @media (max-width: 991px) {
+        .teams-average-charts-body .section-development .section-body {
+          grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 575px) {
+        .teams-average-charts-body .section-development .section-body {
+          grid-template-columns: repeat(1, 100%); } }
+    .teams-average-charts-body .section-development .graph-card {
+      padding: .9rem 1.25rem;
+      padding-top: 1.1rem;
+      height: 26rem; }
+      @media (max-width: 1199px) {
+        .teams-average-charts-body .section-development .graph-card {
+          padding: 0 3rem; } }
+      .teams-average-charts-body .section-development .graph-card-header {
+        height: auto;
+        padding: 0; }
+        .teams-average-charts-body .section-development .graph-card-header h4 {
+          margin-bottom: .3rem;
+          font-size: 1rem;
+          font-weight: 700;
+          line-height: 1.3;
+          color: #137efe;
+          text-transform: uppercase; }
+        .teams-average-charts-body .section-development .graph-card-header h3 {
+          margin-bottom: 0;
+          font-family: Roboto;
+          font-size: 2.3rem;
+          font-weight: 700;
+          line-height: 1.3;
+          color: #242527; }
+      .teams-average-charts-body .section-development .graph-card-body {
+        padding-top: 2rem;
+        padding-left: 2.59rem;
+        padding-right: 2.8rem;
+        height: calc(100% - 2.8rem); }
+        .teams-average-charts-body .section-development .graph-card-body .bar {
+          display: none; }
+        .teams-average-charts-body .section-development .graph-card-body .bar, .teams-average-charts-body .section-development .graph-card-body .bar-fill {
+          border-radius: .6rem;
+          width: 1.8rem; }
+          .teams-average-charts-body .section-development .graph-card-body .bar-info, .teams-average-charts-body .section-development .graph-card-body .bar-fill-info {
+            font-family: "HankRnd-Bold";
+            font-size: 1.025rem;
+            bottom: -1rem; }
+      .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+1) {
+        border-right: 1.5px solid rgba(237, 237, 237, 0.75); }
+        @media (max-width: 991px) {
+          .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+1) {
+            border: 0; } }
+      .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+2) {
+        border-right: 1.5px solid rgba(237, 237, 237, 0.75); }
+        @media (max-width: 991px) {
+          .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+2) {
+            border: 0; } }
+      @media (max-width: 991px) {
+        .teams-average-charts-body .section-development .graph-card:nth-of-type(2n+1) {
+          border-right: 1.5px solid rgba(237, 237, 237, 0.75); } }
+      @media (max-width: 575px) {
+        .teams-average-charts-body .section-development .graph-card:nth-of-type(2n+1) {
+          border: 0; } }
+    .teams-average-charts-body .section-development .slider-trigger-left {
+      left: 0rem; }
+    .teams-average-charts-body .section-development .slider-trigger-right {
+      right: 0rem; }
+  .teams-average-charts-body .section-comments .section-header {
+    margin-bottom: 0; }
+  .teams-average-charts-body .section-comments .section-body {
+    padding: 1rem 0;
+    padding-top: 3.3rem;
     display: grid;
-    grid-template-areas: "card-1 card-2 card-3";
-    grid-auto-rows: 24rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5rem 0rem;
-    overflow-y: auto;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    max-height: 29.2rem;
+    grid-gap: 2.6rem 1.72rem;
+    overflow-y: scroll;
     scrollbar-width: none;
     /* Firefox */
     -ms-overflow-style: none;
     /* Internet Explorer 10+ */ }
-    .teams-main-view-body::-webkit-scrollbar {
+    .teams-average-charts-body .section-comments .section-body::-webkit-scrollbar {
+      /* WebKit */
       width: 0;
       height: 0; }
-    @media (max-width: 1199px) {
-      .teams-main-view-body {
-        grid-gap: 5rem; } }
-    @media (max-width: 991px) {
-      .teams-main-view-body {
-        grid-template-areas: "card-1 card-2";
-        grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 575px) {
-      .teams-main-view-body {
-        padding: 1rem;
-        grid-template-areas: "card-1";
-        grid-template-columns: repeat(1, 1fr); } }
-  .teams-main-view .graph-card {
-    height: 100%; }
-    .teams-main-view .graph-card-header {
-      height: auto;
-      padding: 0; }
-      .teams-main-view .graph-card-header h4 {
-        margin-bottom: .2rem;
-        font-size: 1rem;
-        font-weight: bold;
-        line-height: 1.3;
-        color: #137efe;
-        text-transform: uppercase; }
-      .teams-main-view .graph-card-header h3 {
-        margin: 0;
-        padding: 0;
-        font-size: 2.5rem;
-        font-weight: 700;
-        line-height: 1.32;
-        color: #323539; }
-    .teams-main-view .graph-card-body {
-      padding: 2.8rem 1.7rem;
-      padding-right: 8rem;
-      padding-left: 2.3rem;
-      height: calc(100% - 4.6rem); }
-      @media (max-width: 1199px) {
-        .teams-main-view .graph-card-body {
-          padding-right: 1.7rem; } }
-      .teams-main-view .graph-card-body .bar:first-of-type, .teams-main-view .graph-card-body .bar:first-of-type + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar + .bar {
-        display: none; }
-      @media (max-width: 1439px) {
-        .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar + .bar + .bar {
-          display: none; } }
-      @media (max-width: 1199px) {
-        .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar + .bar + .bar + .bar {
-          display: none; } }
-      @media (max-width: 991px) {
-        .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar + .bar + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar + .bar + .bar + .bar {
-          display: inline-block; } }
-      @media (max-width: 575px) {
-        .teams-main-view .graph-card-body .bar:first-of-type + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar + .bar + .bar {
-          display: inline-block; } }
-      @media (max-width: 379px) {
-        .teams-main-view .graph-card-body .bar:first-of-type + .bar, .teams-main-view .graph-card-body .bar:first-of-type + .bar + .bar {
-          display: none; } }
+    .teams-average-charts-body .section-comments .section-body .comment-container {
+      padding-left: 1.25rem;
+      padding-right: 3rem;
+      display: inline-flex;
+      align-items: center; }
+      .teams-average-charts-body .section-comments .section-body .comment-container img {
+        margin-right: 1.8rem;
+        width: 4.35rem;
+        height: 4.35rem;
+        border-radius: 50%; }
+      .teams-average-charts-body .section-comments .section-body .comment-container .comment {
+        width: 100%; }
+        .teams-average-charts-body .section-comments .section-body .comment-container .comment-header {
+          font-size: 1.4rem;
+          display: flex;
+          align-items: center; }
+          .teams-average-charts-body .section-comments .section-body .comment-container .comment-header .name {
+            margin-right: 1rem;
+            font-weight: 500;
+            line-height: 1.36;
+            color: #0d0e0d; }
+          .teams-average-charts-body .section-comments .section-body .comment-container .comment-header .when {
+            line-height: 1.36;
+            letter-spacing: -0.27px;
+            color: #657383; }
+        .teams-average-charts-body .section-comments .section-body .comment-container .comment-text {
+          font-weight: 400;
+          margin-top: .4rem;
+          font-size: 1.3rem;
+          line-height: 1.38;
+          color: rgba(0, 0, 0, 0.9); }
 
 .teams-comments {
   padding: 2.5rem 0;
@@ -1449,7 +1591,6 @@ i {
   -ms-overflow-style: none;
   /* Internet Explorer 10+ */ }
   .teams-settings-rights::-webkit-scrollbar {
-    /* WebKit */
     width: 0;
     height: 0; }
   .teams-settings-rights-header {
@@ -1729,259 +1870,6 @@ i {
       border-radius: 1.8rem;
       background-color: #1a9cfc;
       border: 0; }
-
-.teams-average-charts {
-  width: 100%;
-  max-width: 103rem;
-  padding-top: 3.5rem;
-  border-top: 1px solid #e1e1e1;
-  z-index: 100;
-  max-height: calc(100vh - 17.1rem - 1.5px);
-  z-index: 0;
-  overflow-y: auto;
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */ }
-  .teams-average-charts::-webkit-scrollbar {
-    /* WebKit */
-    width: 0;
-    height: 0; }
-  .teams-average-charts-body .section {
-    position: relative; }
-    .teams-average-charts-body .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2.2rem;
-      padding: 1rem 1.25rem;
-      padding-right: 2rem;
-      background-color: #f5f7f8;
-      border-radius: .1rem; }
-      .teams-average-charts-body .section-header p {
-        font-size: 1.25rem;
-        font-weight: 500;
-        line-height: 1.28;
-        color: #647282; }
-      .teams-average-charts-body .section-header .dropdown-custom-trigger {
-        border: none;
-        box-shadow: none;
-        font-size: 1.25rem;
-        line-height: 1.28;
-        color: #657383;
-        padding: 0; }
-        .teams-average-charts-body .section-header .dropdown-custom-trigger i {
-          font-size: .8rem;
-          margin-left: .3rem; }
-        .teams-average-charts-body .section-header .dropdown-custom-trigger:focus, .teams-average-charts-body .section-header .dropdown-custom-trigger:active {
-          color: #657383;
-          border: none;
-          box-shadow: none; }
-    .teams-average-charts-body .section-body {
-      overflow-y: auto;
-      scrollbar-width: none;
-      /* Firefox */
-      -ms-overflow-style: none;
-      /* Internet Explorer 10+ */ }
-      .teams-average-charts-body .section-body::-webkit-scrollbar {
-        /* WebKit */
-        width: 0;
-        height: 0; }
-  .teams-average-charts-body .section-averages {
-    margin-bottom: 4.2rem; }
-    .teams-average-charts-body .section-averages .section-header {
-      margin-bottom: 0; }
-    .teams-average-charts-body .section-averages .section-body {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 1rem 1.72rem; }
-      @media (max-width: 991px) {
-        .teams-average-charts-body .section-averages .section-body {
-          grid-template-columns: repeat(2, 1fr); } }
-      @media (max-width: 575px) {
-        .teams-average-charts-body .section-averages .section-body {
-          grid-template-columns: repeat(1, 100%); } }
-      .teams-average-charts-body .section-averages .section-body .progress-custom {
-        padding-right: 2.94rem;
-        padding-left: 1.25rem;
-        padding-top: 2.8rem; }
-        .teams-average-charts-body .section-averages .section-body .progress-custom-sub {
-          margin-bottom: -.2rem;
-          font-size: 1.2rem;
-          font-weight: 500;
-          line-height: 1.33;
-          letter-spacing: normal;
-          color: #818181; }
-        .teams-average-charts-body .section-averages .section-body .progress-custom-info {
-          display: flex;
-          justify-content: space-between;
-          align-items: center; }
-          .teams-average-charts-body .section-averages .section-body .progress-custom-info h3 {
-            margin-top: 0rem;
-            margin-right: 1rem;
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: #1f1f1f; }
-          .teams-average-charts-body .section-averages .section-body .progress-custom-info .up, .teams-average-charts-body .section-averages .section-body .progress-custom-info .down {
-            padding-bottom: .8rem;
-            align-self: flex-end;
-            display: flex;
-            align-items: center;
-            font-size: 1.25rem;
-            font-weight: 500;
-            line-height: 1.33; }
-            .teams-average-charts-body .section-averages .section-body .progress-custom-info .up i, .teams-average-charts-body .section-averages .section-body .progress-custom-info .down i {
-              margin-right: .5rem;
-              font-size: 1.6rem; }
-          .teams-average-charts-body .section-averages .section-body .progress-custom-info .up {
-            color: #137efe; }
-            .teams-average-charts-body .section-averages .section-body .progress-custom-info .up i {
-              color: #137efe; }
-          .teams-average-charts-body .section-averages .section-body .progress-custom-info .down {
-            color: #ff5555; }
-            .teams-average-charts-body .section-averages .section-body .progress-custom-info .down i {
-              color: #ff5555; }
-        .teams-average-charts-body .section-averages .section-body .progress-custom-bar {
-          margin-top: 1rem;
-          width: 100%;
-          height: 1.46rem;
-          border-radius: .6rem;
-          background-color: #ecf0f6; }
-          .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill {
-            width: 0%;
-            height: 100%;
-            border-top-left-radius: .6rem;
-            border-bottom-left-radius: .6rem;
-            transition: width .8s ease-out .1s; }
-            .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill.good {
-              background-color: #30ea4f; }
-            .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill.ok {
-              background-color: #ffcc19; }
-            .teams-average-charts-body .section-averages .section-body .progress-custom-bar-fill.bad {
-              background-color: #fd1f27; }
-  .teams-average-charts-body .section-development {
-    margin-bottom: 3rem; }
-    .teams-average-charts-body .section-development .section-header {
-      margin-bottom: 1.5rem; }
-    .teams-average-charts-body .section-development .section-body {
-      padding: 0 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 3rem 1.72rem; }
-      @media (max-width: 991px) {
-        .teams-average-charts-body .section-development .section-body {
-          grid-template-columns: repeat(2, 1fr); } }
-      @media (max-width: 575px) {
-        .teams-average-charts-body .section-development .section-body {
-          grid-template-columns: repeat(1, 100%); } }
-    .teams-average-charts-body .section-development .graph-card {
-      padding: .9rem 1.25rem;
-      padding-top: 1.1rem;
-      height: 26rem; }
-      @media (max-width: 1199px) {
-        .teams-average-charts-body .section-development .graph-card {
-          padding: 0 3rem; } }
-      .teams-average-charts-body .section-development .graph-card-header {
-        height: auto;
-        padding: 0; }
-        .teams-average-charts-body .section-development .graph-card-header h4 {
-          margin-bottom: .3rem;
-          font-size: 1rem;
-          font-weight: 700;
-          line-height: 1.3;
-          color: #137efe;
-          text-transform: uppercase; }
-        .teams-average-charts-body .section-development .graph-card-header h3 {
-          margin-bottom: 0;
-          font-family: Roboto;
-          font-size: 2.3rem;
-          font-weight: 700;
-          line-height: 1.3;
-          color: #242527; }
-      .teams-average-charts-body .section-development .graph-card-body {
-        padding-top: 2rem;
-        padding-left: 2.59rem;
-        padding-right: 2.8rem;
-        height: calc(100% - 2.8rem); }
-        .teams-average-charts-body .section-development .graph-card-body .bar {
-          display: none; }
-        .teams-average-charts-body .section-development .graph-card-body .bar, .teams-average-charts-body .section-development .graph-card-body .bar-fill {
-          border-radius: .6rem;
-          width: 1.8rem; }
-          .teams-average-charts-body .section-development .graph-card-body .bar-info, .teams-average-charts-body .section-development .graph-card-body .bar-fill-info {
-            font-family: "HankRnd-Bold";
-            font-size: 1.025rem;
-            bottom: -1rem; }
-      .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+1) {
-        border-right: 1.5px solid rgba(237, 237, 237, 0.75); }
-        @media (max-width: 991px) {
-          .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+1) {
-            border: 0; } }
-      .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+2) {
-        border-right: 1.5px solid rgba(237, 237, 237, 0.75); }
-        @media (max-width: 991px) {
-          .teams-average-charts-body .section-development .graph-card:nth-of-type(3n+2) {
-            border: 0; } }
-      @media (max-width: 991px) {
-        .teams-average-charts-body .section-development .graph-card:nth-of-type(2n+1) {
-          border-right: 1.5px solid rgba(237, 237, 237, 0.75); } }
-      @media (max-width: 575px) {
-        .teams-average-charts-body .section-development .graph-card:nth-of-type(2n+1) {
-          border: 0; } }
-    .teams-average-charts-body .section-development .slider-trigger-left {
-      left: 0rem; }
-    .teams-average-charts-body .section-development .slider-trigger-right {
-      right: 0rem; }
-  .teams-average-charts-body .section-comments .section-header {
-    margin-bottom: 0; }
-  .teams-average-charts-body .section-comments .section-body {
-    padding: 1rem 0;
-    padding-top: 3.3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    max-height: 29.2rem;
-    grid-gap: 2.6rem 1.72rem;
-    overflow-y: scroll;
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* Internet Explorer 10+ */ }
-    .teams-average-charts-body .section-comments .section-body::-webkit-scrollbar {
-      /* WebKit */
-      width: 0;
-      height: 0; }
-    .teams-average-charts-body .section-comments .section-body .comment-container {
-      padding-left: 1.25rem;
-      padding-right: 3rem;
-      display: inline-flex;
-      align-items: center; }
-      .teams-average-charts-body .section-comments .section-body .comment-container img {
-        margin-right: 1.8rem;
-        width: 4.35rem;
-        height: 4.35rem;
-        border-radius: 50%; }
-      .teams-average-charts-body .section-comments .section-body .comment-container .comment {
-        width: 100%; }
-        .teams-average-charts-body .section-comments .section-body .comment-container .comment-header {
-          font-size: 1.4rem;
-          display: flex;
-          align-items: center; }
-          .teams-average-charts-body .section-comments .section-body .comment-container .comment-header .name {
-            margin-right: 1rem;
-            font-weight: 500;
-            line-height: 1.36;
-            color: #0d0e0d; }
-          .teams-average-charts-body .section-comments .section-body .comment-container .comment-header .when {
-            line-height: 1.36;
-            letter-spacing: -0.27px;
-            color: #657383; }
-        .teams-average-charts-body .section-comments .section-body .comment-container .comment-text {
-          font-weight: 400;
-          margin-top: .4rem;
-          font-size: 1.3rem;
-          line-height: 1.38;
-          color: rgba(0, 0, 0, 0.9); }
 
 .single-user {
   width: 100%;
@@ -2390,7 +2278,7 @@ i {
           .single-user-feedback-body .section-comments-body .comment-body-feedback p {
             width: 8.5rem;
             display: inline-block; }
-          .single-user-feedback-body .section-comments-body .comment-body-feedback svg {
+          .single-user-feedback-body .section-comments-body .comment-body-feedback i {
             margin-right: .2rem;
             font-size: 1.3rem;
             color: #ffd800; }

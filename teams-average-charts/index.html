@@ -23,7 +23,6 @@
                 <ul class="sidebar-main-top">
                     <li class="sidebar-main-item logo">
                         <a href="../teams-average-charts/index.html" class="sidebar-main-link">
-                            <!-- <img src="../public/svg/sidenav-logo.svg" alt="logo"> -->
                             <img src="../public/img/logo-png.png" alt="logo">
                         </a>
                     </li>
@@ -666,9 +665,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                         <h5 class="modal-title" id="createNewTeamModalTitle">Create a new team</h5>
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <i class="icon-close"></i>
-                        </button> -->
                         <i class="icon-bell bell"></i>
                         <img class="face" src="../public/img/facex2.png" alt="#">
                         </div>
@@ -742,49 +738,10 @@
                 })
             })
 
-            // initial width check
-            checkSliderWidth()
-            
-            // Initialize sliders
-            sliderInit('.section-averages')
-            sliderInit('.section-development')
-            
-
-            // Check for sliders and content width show/hide slider triggers
-            function checkSliderWidth(slider) {
-                $('.slider').each(function(i) {
-                    if($(this).width() <= $(this).find('.slider-item').outerWidth() * 3 - 10) {
-                        $(this).find('.slider-trigger-left').show()
-                        $(this).find('.slider-trigger-right').show()
-                        //$(`.slider .slider-item`)
-                    }else {
-                        $(this).find('.slider-trigger-left').hide()
-                        $(this).find('.slider-trigger-right').hide()
-                        //$(`.slider .slider-item`)
-                    }
-                })
-
-                numberOfChartBars()
-            }
-
-            // Slider logic
-            function sliderInit(slider) {
-                console.log($('html').css('font-size'))
-                $(`${slider} .slider-trigger-left`).on('click', function() {
-                    $(`${slider} .section-body`).animate({
-                        scrollLeft: `-=${$(`${slider} .slider-item`).outerWidth() + parseInt($('html').css('font-size')) * 1.72}`
-                    }, 300, 'swing');
-                });
-
-                $(`${slider} .slider-trigger-right`).on('click', function() {
-                    $(`${slider} .section-body`).animate({
-                        scrollLeft: `+=${$(`${slider} .slider-item`).outerWidth() + parseInt($('html').css('font-size')) * 1.72}`
-                    }, 300, 'swing');
-                });
-            }
+            numberOfChartBars()
 
             // resize event listener
-            window.addEventListener('resize', checkSliderWidth)
+            window.addEventListener('resize', numberOfChartBars)
         </script>
 
 </body>
