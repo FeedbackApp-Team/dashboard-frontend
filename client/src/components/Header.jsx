@@ -1,15 +1,39 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
 import face from '../assets/img/facex2.png';
 import face2 from '../assets/img/p-06.png';
 
-function Header() {
+function Header({ location }) {
+  const { pathname } = location;
+  const title =
+    pathname === '/give-feedback' ? 'Give Feedback' : 'Team Marketing';
+
+  // Temporary render title & links for Header.jsx
+  const renderLinks = pathname !== '/give-feedback' && (
+    <div className="header-bottom">
+      <div className="choose">
+        <Link to="/teams-average-charts" className="active">
+          Charts
+        </Link>
+
+        <Link to="/teams-comments">Comments</Link>
+
+        <Link to="./teams-members">Members</Link>
+
+        <Link to="/teams-settings-general">Settings</Link>
+
+        <Link to="/teams-settings-general">Reports</Link>
+      </div>
+    </div>
+  );
+
   return (
     <header className="header">
       <div className="header-top">
-        <h1 className="header-top-title text-truncate">Team Marketing</h1>
+        <h1 className="header-top-title text-truncate">{title}</h1>
         <div className="input-container">
           <i className="icon-search" />
           <input type="text" placeholder="Search..." />
@@ -42,31 +66,21 @@ function Header() {
             </li>
 
             <li className="dropdown-custom-list-footer">
-              <Link to="./sign-in/index.html">Sign out</Link>
+              <Link to="./sign-in">Sign out</Link>
             </li>
           </ul>
         </div>
       </div>
       <p className="header-small text-truncate">
-        We make great ads, campaigns and create Link super brand.
+        We make great ads, campaigns and create a super brand.
       </p>
-      <div className="header-bottom">
-        <div className="choose">
-          <Link to="./teams-average-charts/index.html" className="active">
-            Charts
-          </Link>
-
-          <Link to="./teams-comments/index.html">Comments</Link>
-
-          <Link to="./teams-members/index.html">Members</Link>
-
-          <Link to="./teams-settings-general/index.html">Settings</Link>
-
-          <Link to="./teams-settings-general/index.html">Reports</Link>
-        </div>
-      </div>
+      {renderLinks}
     </header>
   );
 }
 
-export default Header;
+Header.propTypes = {
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
+export default withRouter(Header);
