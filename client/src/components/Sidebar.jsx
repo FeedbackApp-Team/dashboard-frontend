@@ -106,7 +106,7 @@ function Sidebar() {
             data-toggle="modal"
             data-target="#createNewTeamModal"
           >
-            Create Link new team
+            Create a new team
           </Link>
           <Link to="#" className="btn-custom-white">
             Get the mobile app

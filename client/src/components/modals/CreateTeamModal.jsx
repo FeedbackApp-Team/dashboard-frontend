@@ -51,7 +51,7 @@ export default function CreateTeamModal() {
                 </label>
 
                 <select name="lead" id="lead">
-                  <option value="value01" selected>
+                  <option value="value01" defaultValue>
                     Me
                   </option>
                   <option value="value02">Option I</option>
